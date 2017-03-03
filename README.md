@@ -4,6 +4,19 @@ Raspberry Pi Dual Screen Project (1080p + 3.5 TFT)
 
 This is a project utilizing Adafruit 3.5 480x320 PiTFT, together with an HP 1920x1080 monitor on the RPi's HDMI port.
 
+Upon boot a menu will appear providing user the option to select perferred desktop configuration (home/pi/bin/selector.sh).
+
+![img_20170302_231500](https://cloud.githubusercontent.com/assets/25314348/23539352/60e9b2a2-ffa0-11e6-89e5-9fc6ed780916.jpg)
+
+Menu will timeout after 10 seconds and default to HDMI output.
+
+You may change this to default to TFT by commenting and uncommenting the following code.
+
+    #echo 0 > /sys/class/backlight/soc:backlight/bl_power
+    #startx
+    echo 1 > /sys/class/backlight/soc:backlight/bl_power
+    startx -- -layout HDMI
+    
 This github project is shared as reference material for configuring their own extended display project.
 
 
